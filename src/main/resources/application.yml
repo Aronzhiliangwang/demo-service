@@ -1,0 +1,6 @@
+# 一旦有了项目（模块）自己的application文件，依赖的dao模块配置文件就无效，所以导入已下配置
+#另外，你可以删除这个文件，junit测试是没问题的，因为没有的话默认就用dao模块的yml配置了
+spring:
+  profiles:
+    #profiles的配置不可以依赖包含：比如：application-service.yml 包含了dao，这里在包含service并不能真正的把dao包含进来
+    active: service,dao
